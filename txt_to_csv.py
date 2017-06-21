@@ -3,19 +3,14 @@ import csv
 tabla = []
 docs = ['respuestas.csv', 'respuestas2.csv', 'respuestas3.csv']
 
-for file in docs:
-    with open(file, 'r') as csv_respuestas:
-        reader = csv.reader(csv_respuestas)
-        for row in reader:
-            l = []
-            for column in row:
-                l.append(column)
-            tabla.append(l)
-    csv_respuestas.close()
-
-
-print(tabla)
-
+with open(docs[1], 'r') as csv_respuestas:
+    reader = csv.reader(csv_respuestas)
+    for row in reader:
+        l = []
+        for column in row:
+            l.append(column)
+        tabla.append(l)
+csv_respuestas.close()
 
 new_table = []
 #dewyn
@@ -45,11 +40,14 @@ for row in new_table:
         l[k] = row[0][k] + row[1][k] + row[2][k]
     final_table.append(l)
 
+c=0
 for line in final_table:
+    c+=1
     print(line)
+print(c)
 
 #Angustia, Alegria, Sorpresa, Disgusto, Neutral
-with open('dataset.csv', 'w') as csvfile:
+with open('dataset2.csv', 'w') as csvfile:
     filewriter = csv.writer(csvfile, quoting=csv.QUOTE_MINIMAL)
     filewriter.writerow(['Angustia', 'Alegria', 'Sorpresa', 'Disgusto', 'Neutral'])
 
