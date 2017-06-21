@@ -1,15 +1,21 @@
 import csv
 
 tabla = []
+docs = ['respuestas.csv', 'respuestas2.csv', 'respuestas3.csv']
 
-with open('respuestas.csv', 'r') as csv_respuestas:
-    reader = csv.reader(csv_respuestas)
-    for row in reader:
-        l = []
-        for column in row:
-            l.append(column)
-        tabla.append(l)
-csv_respuestas.close()
+for file in docs:
+    with open(file, 'r') as csv_respuestas:
+        reader = csv.reader(csv_respuestas)
+        for row in reader:
+            l = []
+            for column in row:
+                l.append(column)
+            tabla.append(l)
+    csv_respuestas.close()
+
+
+print(tabla)
+
 
 new_table = []
 #dewyn
